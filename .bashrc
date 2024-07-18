@@ -51,7 +51,6 @@ set -o noclobber
 # My env variables
 #export EDITOR=vim
 export HISTCONTROL=ignoredups:ignorespace
-#CS50=/home/katch/Documents/projects/Coding/CS50 ; export CS50
 
 # Disable bash history
 set +o history
