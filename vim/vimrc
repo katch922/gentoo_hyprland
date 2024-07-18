@@ -27,6 +27,11 @@ set laststatus=2
 map <F6> :setlocal spell! spelllang=en_us<CR>
 " history size
 set history=50
+" set to clipboard register
+set clipboard=unnamedplus
+" set bindings for copy/paste, paste in visual mode
+vnoremap <C-c> "+y
+vnoremap <C-v> "+p
 
 "set showcmd
 "set showmatch
