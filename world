@@ -1,4 +1,5 @@
 # Gentoo world file; packages implicitly installed
+# This file is for reference only
 app-admin/eclean-kernel
 app-admin/sudo
 app-admin/sysklogd
