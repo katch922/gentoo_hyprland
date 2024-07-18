@@ -43,6 +43,8 @@ button:hover {
 
 #workspaces button {
     padding: 4px 4px;
+    border: 1px rgba(186, 166, 127, 0.2);
+    border-style: ridge;
 }
 
 #workspaces button:hover {
@@ -71,7 +73,7 @@ button:hover {
 #upower,
 #idle_inhibitor {
     color: #baa67f;
-    border: 1px #baa67f;
+    border: 1px rgba(186, 166, 127, 0.2);
     border-style: ridge;
     border-radius: 20px;
     margin: 4px 0px 4px 0px;
