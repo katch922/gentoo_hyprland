@@ -1,1 +1,1 @@
-Few configuration files which could help setup a Hyprland WM in Gentoo. Nvidia setup with openrc as init system.
+Few configuration files which could help with Hyprland setup on a Linux distro. Nvidia setup with openrc as init system.
