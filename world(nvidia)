@@ -1,5 +1,5 @@
 # Gentoo world file; packages implicitly installed
-# This file is for reference only used for Nvidia GPU
+# This file is for reference only; used with Nvidia GPU
 app-admin/eclean-kernel
 app-admin/sudo
 app-admin/sysklogd
