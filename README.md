@@ -1,1 +1,1 @@
-Few configuration files which could help with Hyprland setup on a Linux distro. Nvidia setup with openrc as init system.
+Few configuration files which could help with Hyprland setup on a Linux distro. Files with (nvidia) in name are meant to work with Nvidia GPU, while (amd) meant for AMDGPU. Save files such as MyEnv(nvidia).conf as MyEnv.conf, or whatever else you like it, and reflect the change in Hyprland.conf.
