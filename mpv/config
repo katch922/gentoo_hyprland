@@ -1,0 +1,4 @@
+# reduce font size; default 55
+sub-font-size=35
+# save
+save-position-on-quit

@@ -1,0 +1,126 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono NFP", "Font Awesome 6 Free Solid", Helvetica;
+    font-size: 19px;
+}
+
+window#waybar {
+    background: no-repeat url("gentoo_black.png");
+    background-size: 1%;
+    background-position: center;
+    background-color: rgba(28, 27, 25, 0.9);
+    border-radius: 20px;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+
+window#waybar.solo {
+    background-color: #263238;
+}
+
+button {
+    color: #baa67f;
+    margin: 4px;
+    /*color: rgba(251, 184, 41, 0.8);*/
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 20px;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    padding: 4px 4px;
+    border: 1px rgba(186, 166, 127, 0.2);
+    border-style: ridge;
+}
+
+#workspaces button:hover {
+    padding: 4px 4px;
+    background: #2C78BF;
+    border-radius: 20px;
+}
+
+#workspaces button.active {
+    padding: 4px 4px;
+    background-color: #FBB829;
+    color: rgba(28, 27, 25, 0.6);
+}
+
+#workspaces button.urgent {
+    background-color: #EF2F27;
+    border-radius: 20px;
+}
+
+#clock,
+#cpu,
+#memory,
+#network,
+#temperature,
+#pulseaudio,
+#idle_inhibitor {
+    color: #baa67f;
+    border: 1px rgba(186, 166, 127, 0.2);
+    border-style: ridge;
+    padding: 4px 4px;
+    border-radius: 20px;
+    margin: 4px 0px 4px 0px;
+}
+
+#window,
+#workspaces {
+    margin: 0 2px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: rgba(28, 27, 25, 0.6);
+    background-color: #519F50;
+    padding-right: 10px;
+    margin: 4px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #2C78BF;
+}
+
+#pulseaudio.muted {
+    background-color: #D75F00;
+}
+
+#temperature.critical {
+    background-color: #EF2F27;
+}
+
+#idle_inhibitor.activated {
+    color: rgba(28, 27, 25, 0.6);
+    background-color: #0AAEB3;
+}

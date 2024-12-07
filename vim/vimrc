@@ -1,0 +1,46 @@
+" User defined options
+
+" Useful changes for writing code
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set autoindent smartcase ignorecase
+" Shift+Tab does inverse tab
+inoremap <S-Tab> <C-d>
+" Use relative numbers instead of line numbers
+set relativenumber
+" Show current line number
+set number
+" Don't keep highlighting the search result forever
+"set nohlsearch
+" Incrementally highlight search results as you type
+set incsearch
+" Start scrolling # lines earlier
+set scrolloff=8
+" Enable mouse click
+set mouse=a
+" Enable syntax highlighting
+syntax on
+" Add full file path to your existing statusline
+set statusline+=%F
+" Always show statusline
+set laststatus=2
+" F6 for spell check
+map <F6> :setlocal spell! spelllang=en_us<CR>
+" history size
+set history=50
+
+"set showcmd
+"set showmatch
+"set backspace=indent,eol,start
+"set ruler
+"set wildmode=longest,list,full
+"colo desert
+filetype plugin on
+filetype indent on
+
+"See invisible characters
+"set list listchars=tab:>\ ,trail:+,eol:$
+
+" Enable mouse click in Alacritty
+"if $TERM == 'alacritty'
+"  set ttymouse=sgr
+"endif

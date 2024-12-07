@@ -1,0 +1,5 @@
+# add programs to run after making changes to hyprland.conf
+hdmi disable &
+# mute 2 output devices
+sleep 3
+mute_mic &

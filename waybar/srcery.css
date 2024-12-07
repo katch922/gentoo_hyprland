@@ -1,0 +1,129 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono NFP", "Font Awesome 6 Free Solid", sans-serif;
+    font-size: 19px;
+}
+
+window#waybar {
+    background: no-repeat url("gentoo.png");
+    background-size: 1%;
+    background-position: center;
+    background-color: rgba(28, 27, 25, 0.9);
+    border-radius: 20px;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+
+window#waybar.solo {
+    background-color: #263238;
+}
+
+button {
+    color: #baa67f;
+    /*color: rgba(251, 184, 41, 0.8);*/
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 20px;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#workspaces button:hover {
+    background: #2C78BF;
+    border-radius: 20px;
+    margin: 4px;
+}
+
+#workspaces button.active {
+    color: rgba(28, 27, 25, 0.6);
+    background-color: #FBB829;
+    margin: 4px;
+}
+
+#workspaces button.urgent {
+    background-color: #EF2F27;
+    border-radius: 20px;
+    margin: 4px;
+}
+
+#clock,
+#cpu,
+#memory,
+#network,
+#temperature,
+#pulseaudio,
+#custom-media,
+#tray,
+#idle_inhibitor {
+    color: #baa67f;
+    padding: 0 5px;
+    border-radius: 20px;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: rgba(28, 27, 25, 0.6);
+    background-color: #519F50;
+    padding-right: 10px;
+    margin: 4px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #D75F00;
+    border-radius: 20px;
+    margin: 4px;
+}
+
+#temperature.critical {
+    background-color: #EF2F27;
+    margin: 4px;
+}
+
+#idle_inhibitor.activated {
+    color: rgba(28, 27, 25, 0.6);
+    background-color: #0AAEB3;
+    border-radius: 20px;
+    margin: 4px;
+}

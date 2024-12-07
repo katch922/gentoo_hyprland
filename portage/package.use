@@ -1,0 +1,97 @@
+*/* CPU_FLAGS_X86: aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sha sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3
+
+# Set PipeWire as default sound server
+media-video/pipewire sound-server pipewire-alsa dbus
+media-sound/pulseaudio -daemon
+
+# Disable features
+app-admin/sudo -sendmail
+
+# Enable os-prober
+>=sys-boot/grub-2.06-r4 mount -themes
+
+# Required by firefox
+>=media-libs/libvpx-1.13.1-r1 postproc
+# disable for v116
+www-client/firefox dbus
+
+# Required by pfl
+>=sys-apps/util-linux-2.38.1 caps
+
+# required by libreoffice
+dev-libs/xmlsec nss
+media-libs/harfbuzz icu
+app-office/libreoffice -bluetooth
+media-libs/tiff jpeg
+
+# Required by unar
+# added pgo
+sys-devel/gcc objc pgo
+>=gnustep-base/gnustep-make-2.8.0-r1 native-exceptions
+
+# For KVM use
+# required for virt-manager to operate
+app-emulation/qemu usbredir spice virgl opengl
+# Recommanded flags for libvirt
+app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu policykit
+# Required by libvirt
+>=net-dns/dnsmasq-2.89 script
+>=net-libs/gnutls-3.8.0 pkcs11 tools
+# Required for virt-manager
+>=net-misc/spice-gtk-0.41-r1 usbredir
+app-emulation/virt-manager gui
+
+# Remove netifrc
+sys-apps/openrc -netifrc
+
+# HYPRLAND
+media-libs/libsdl2 gles2
+>=x11-libs/libdrm-2.4.120 video_cards_radeon
+dev-qt/qtgui egl jpeg
+dev-qt/qtbase opengl
+dev-qt/qttools opengl
+
+# WAYBAR
+gui-apps/waybar experimental network pipewire wifi -upower
+x11-libs/gdk-pixbuf jpeg
+
+# ROFI-Wayland
+gui-apps/rofi-wayland drun
+
+# SPOTIFY
+>=dev-libs/libdbusmenu-16.04.0-r2 gtk3
+
+# CLAMAV
+# enable on-access scan
+#app-antivirus/clamav clamonacc
+
+# enable dracut and grub regen
+sys-kernel/installkernel dracut grub
+
+# reqired by networkmanager
+net-misc/networkmanager -bluetooth -wext
+net-wireless/wpa_supplicant dbus
+
+# required by joplin-desktop
+app-text/xmlto text
+app-crypt/gcr gtk
+
+# Remove some options
+x11-themes/arc-theme -gtk2
+
+# Fonts
+# add emoji & asian lang
+#media-fonts/fonts-meta emoji
+media-fonts/nerdfonts jetbrainsmono
+
+# seatd as server
+sys-auth/seatd builtin server -elogind
+
+# do not harden kernel
+#sys-kernel/gentoo-kernel -hardened
+
+# Optimize the build using Profile Guided Optimization (PGO)
+app-arch/xz-utils pgo
+app-shells/bash pgo
+dev-lang/python pgo
+sys-devel/binutils pgo

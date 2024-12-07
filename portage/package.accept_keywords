@@ -1,0 +1,43 @@
+# Unlock these packages
+app-shells/zsh-autosuggestions ~amd64
+app-shells/zsh-history-substring-search ~amd64
+app-shells/zsh-autocomplete ~amd64
+app-editors/vscodium ~amd64
+gui-wm/hyprland ~amd64
+gui-apps/waybar ~amd64
+gui-apps/rofi-wayland ~amd64
+app-misc/yazi ~amd64
+app-office/joplin-desktop ~amd64
+x11-themes/breezex-xcursors ~amd64
+media-fonts/nerdfonts ~amd64
+media-video/wireplumber ~amd64
+media-video/pipewire ~amd64
+mail-client/mailspring-bin ~amd64
+# Unlock fastfetch
+app-misc/fastfetch ~amd64
+dev-libs/yyjson ~amd64
+# Hyprland
+media-libs/libdisplay-info ~amd64
+dev-libs/hyprland-protocols ~amd64
+dev-libs/libliftoff ~amd64
+dev-libs/wayland ~amd64
+dev-util/wayland-scanner ~amd64
+dev-libs/date ~amd64
+dev-libs/wayland-protocols ~amd64
+x11-libs/libdrm ~amd64
+dev-cpp/tomlplusplus ~amd64
+gui-libs/hyprcursor ~amd64
+dev-util/hyprwayland-scanner ~amd64
+gui-apps/hyprlock ~amd64
+gui-apps/hypridle ~amd64
+gui-apps/hyprpaper ~amd64
+gui-apps/clipman ~amd64
+gui-libs/hyprutils ~amd64
+gui-libs/wlroots ~amd64
+gui-libs/aquamarine ~amd64
+# Hyprland needs gcc 14 to build
+sys-devel/gcc ~amd64
+# Hyprland XDPH
+gui-libs/xdg-desktop-portal-hyprland ~amd64
+dev-cpp/sdbus-c++ ~amd64
+dev-libs/hyprlang ~amd64

@@ -1,0 +1,9 @@
+# Accept license for linux-firmware
+sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
+# Accept Spotify license
+media-sound/spotify Spotify
+# Accept CMake license
+dev-build/cmake CMake
+# License for some fonts
+media-fonts/font-bh-ttf bh-luxi
+media-fonts/corefonts MSttfEULA
