@@ -3,5 +3,5 @@ hdmi disable &
 # mute 2 output devices
 sleep 3
 mute_mic &
-# restart Waybar
+# start statusbar
 waybar

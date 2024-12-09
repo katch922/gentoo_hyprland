@@ -4,8 +4,6 @@
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 # Start PipeWire services
 gentoo-pipewire-launcher restart &
-# start statusbar
-waybar &
 # Set default cursor
 gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-Light' &
 # Start mako notification daemon
