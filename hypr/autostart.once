@@ -13,7 +13,8 @@ mako &
 # Start clipman
 wl-paste -t text --watch clipman store --no-persist &
 # Start mail in bg
-mailspring --password-store="gnome-libsecret" &
+#mailspring --password-store="gnome-libsecret" &
+thunderbird &
 # Start hyprpaper to set wallpapers
 hyprpaper &
 # start hypridle
