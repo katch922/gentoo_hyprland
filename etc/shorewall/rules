@@ -1,0 +1,43 @@
+#
+# Shorewall -- /etc/shorewall/rules
+#
+# For information on the settings in this file, type "man shorewall-rules"
+#
+# The manpage is also online at
+# https://shorewall.org/manpages/shorewall-rules.html
+#
+##############################################################################################################################################################
+#ACTION		SOURCE		DEST		PROTO	DPORT	SPORT	ORIGDEST	RATE	USER	MARK	CONNLIMIT	TIME	HEADERS	SWITCH	HELPER
+
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+
+# Do not allow these connections; REJECT should come before ACCEPT; ip can be local ip or public ip
+#DROP    $FW   net:ip              tcp
+#Ping(DROP)   net:ip        $FW
+#REJECT   $FW   net:31.13.80.36    tcp
+
+# allow tcp connect to internet
+ACCEPT        $FW               net tcp
+Invalid(DROP) $FW               net tcp
+
+# Accept DNS connections from the firewall to the network
+DNS(ACCEPT)   $FW               net
+
+# Accept connection to Jenkins Server on vm
+ACCEPT        $FW               vir tcp port
+
+# Accept SSH connections from the local network for admin
+#SSH(REJECT)     net:ip         $FW
+#SSH(ACCEPT)     loc            $FW
+#ACCEPT    net:ip    $FW   tcp  port
+
+# Allow ping from the local network
+Ping(ACCEPT)  loc               $FW
+# Drop ping from the "bad" net zone & prevent log from being flooded
+Ping(ACCEPT)  net               all
+ACCEPT        $FW               loc icmp

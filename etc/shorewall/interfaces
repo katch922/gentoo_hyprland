@@ -1,0 +1,14 @@
+#
+# Shorewall -- /etc/shorewall/interfaces
+#
+# For information about entries in this file, type "man shorewall-interfaces"
+#
+# The manpage is also online at
+# https://shorewall.org/manpages/shorewall-interfaces.html
+#
+?FORMAT 2
+###############################################################################
+#ZONE		INTERFACE		OPTIONS
+net         NET_IF          tcpflags,dhcp,nosmurfs,routefilter,logmartians,sourceroute=0,physical=enp5s0
+loc         LOC_IF          tcpflags,nosmurfs,routefilter,logmartians,physical=enp6s0
+vir         VIR_IF          routeback,bridge,tcpflags,nosmurfs,routefilter,logmartians,physical=virbr0

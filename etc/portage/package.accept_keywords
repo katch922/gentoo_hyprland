@@ -9,7 +9,6 @@ gui-apps/rofi-wayland ~amd64
 app-misc/yazi ~amd64
 app-office/joplin-desktop ~amd64
 x11-themes/breezex-xcursors ~amd64
-media-fonts/nerdfonts ~amd64
 media-video/wireplumber ~amd64
 media-video/pipewire ~amd64
 mail-client/mailspring-bin ~amd64

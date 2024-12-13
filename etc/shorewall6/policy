@@ -1,0 +1,13 @@
+#
+# Shorewall6 -- /etc/shorewall6/policy
+#
+# For information about entries in this file, type "man shorewall6-policy"
+#
+# The manpage is also online at
+# https://shorewall.org/manpages/shorewall-policy.html
+#
+###############################################################################
+#SOURCE		DEST		POLICY	LOGLEVEL	RATE	CONNLIMIT
+loc         all         ACCEPT
+net         all         DROP    info
+all         all         REJECT  info

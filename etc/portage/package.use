@@ -40,6 +40,7 @@ app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu policykit
 # Required for virt-manager
 >=net-misc/spice-gtk-0.41-r1 usbredir
 app-emulation/virt-manager gui
+# Required for bridge networking
 
 # Remove netifrc
 sys-apps/openrc -netifrc
@@ -82,7 +83,6 @@ x11-themes/arc-theme -gtk2
 # Fonts
 # add emoji & asian lang
 #media-fonts/fonts-meta emoji
-media-fonts/nerdfonts jetbrainsmono
 
 # seatd as server
 sys-auth/seatd builtin server -elogind
