@@ -15,5 +15,7 @@ wl-paste -t text --watch clipman store --no-persist &
 thunderbird &
 # Start hyprpaper to set wallpapers
 hyprpaper &
+# add non-network local connections to ACL; get rid of msg "Authorization protocol not specified"
+xhost + local: &
 # start hypridle
 hypridle
