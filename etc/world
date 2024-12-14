@@ -65,6 +65,7 @@ sys-kernel/linux-firmware
 sys-process/cronie
 sys-process/htop
 www-client/firefox
+x11-apps/xhost
 x11-themes/arc-theme
 x11-themes/breezex-xcursors
 x11-themes/papirus-icon-theme
