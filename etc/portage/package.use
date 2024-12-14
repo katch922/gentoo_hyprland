@@ -5,7 +5,7 @@ media-video/pipewire sound-server pipewire-alsa dbus
 media-sound/pulseaudio -daemon
 
 # Disable features
-app-admin/sudo -sendmail
+app-admin/sudo -sendmail -pam
 
 # Enable os-prober
 >=sys-boot/grub-2.06-r4 mount -themes
@@ -13,7 +13,7 @@ app-admin/sudo -sendmail
 # Required by firefox
 >=media-libs/libvpx-1.13.1-r1 postproc
 # disable for v116
-www-client/firefox dbus
+#www-client/firefox dbus
 
 # Required by pfl
 >=sys-apps/util-linux-2.38.1 caps
@@ -40,7 +40,6 @@ app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu policykit
 # Required for virt-manager
 >=net-misc/spice-gtk-0.41-r1 usbredir
 app-emulation/virt-manager gui
-# Required for bridge networking
 
 # Remove netifrc
 sys-apps/openrc -netifrc
