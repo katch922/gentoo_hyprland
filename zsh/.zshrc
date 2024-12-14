@@ -90,7 +90,8 @@ uptime
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
 
 # Activate zsh-autocomplete
-source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# version 24.09.04 from guru is causing major lag
+#source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # Extra settings for zsh-autocomplete
 # all Tab widgets
 #zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
@@ -99,18 +100,18 @@ source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zs
 # ^S
 #zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 # Make Enter submit the command line straight from the menu
-bindkey -M menuselect '\r' .accept-line
+#bindkey -M menuselect '\r' .accept-line
 # Make Tab go straight to the menu & cycle there 
-bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+#bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+#bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 # Activate zsh-syntax-highlighting
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 # Activate zsh-history-substring-search
-#source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh
+source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh
 # Bind the keys for the above plugin
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # bindkeys from /etc/inputrc "sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc"
 bindkey "\e[1~" beginning-of-line

@@ -15,9 +15,9 @@ app-portage/mirrorselect
 app-portage/pfl
 app-shells/gentoo-zsh-completions
 app-shells/zsh
-app-shells/zsh-autocomplete
 app-shells/zsh-autosuggestions
 app-shells/zsh-completions
+app-shells/zsh-history-substring-search
 app-shells/zsh-syntax-highlighting
 app-text/tree
 app-text/wgetpaste
