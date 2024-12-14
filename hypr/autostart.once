@@ -10,6 +10,8 @@ gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-Light' &
 mako &
 # Start clipman
 wl-paste -t text --watch clipman store --no-persist &
+# Start status bar
+waybar &
 # Start mail in bg
 #mailspring --password-store="gnome-libsecret" &
 thunderbird &
