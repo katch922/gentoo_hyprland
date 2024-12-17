@@ -5,15 +5,14 @@ media-video/pipewire sound-server pipewire-alsa dbus
 media-sound/pulseaudio -daemon
 
 # Disable features
-app-admin/sudo -sendmail -pam
+app-admin/sudo -sendmail
 
 # Enable os-prober
 >=sys-boot/grub-2.06-r4 mount -themes
 
 # Required by firefox
 >=media-libs/libvpx-1.13.1-r1 postproc
-# disable for v116
-#www-client/firefox dbus
+www-client/firefox dbus
 
 # Required by pfl
 >=sys-apps/util-linux-2.38.1 caps
@@ -25,7 +24,7 @@ app-office/libreoffice -bluetooth
 media-libs/tiff jpeg
 
 # Required by unar
-# added pgo
+# Added PGO
 sys-devel/gcc objc pgo
 >=gnustep-base/gnustep-make-2.8.0-r1 native-exceptions
 
@@ -89,8 +88,13 @@ sys-auth/seatd builtin server -elogind
 # do not harden kernel
 #sys-kernel/gentoo-kernel -hardened
 
-# Optimize the build using Profile Guided Optimization (PGO)
+# Enable Profile Guided Optimization (PGO)
 app-arch/xz-utils pgo
 app-shells/bash pgo
 dev-lang/python pgo
 sys-devel/binutils pgo
+
+# Satisfy dependency
+sys-apps/util-linux pam
+# remove pam authentication for elogind
+sys-auth/pambase -elogind
