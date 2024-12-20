@@ -9,7 +9,8 @@
 ###############################################################################
 #ZONE		TYPE		OPTIONS		IN_OPTIONS	OUT_OPTIONS
 
-fw		firewall
-net     ipv4
-loc     ipv4
-vir     ipv4
+fw		    firewall
+enp5        ipv4        # eth net
+wlp7        ipv4        # WiFi net
+enp6        ipv4        # local net
+vir         ipv4        # VM bridge

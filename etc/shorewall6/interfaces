@@ -9,5 +9,7 @@
 ?FORMAT 2
 ###############################################################################
 #ZONE		INTERFACE		OPTIONS
-net         NET_IF          tcpflags,dhcp,nosmurfs,sourceroute=0,physical=enp5s0
-loc         LOC_IF          tcpflags,nosmurfs,physical=enp6s0
+enp5        NET_IF          tcpflags,forward=1,sourceroute=0,physical=enp5s0
+wlp7        WIFI_IF         tcpflags,forward=1,sourceroute=0,physical=wlp7s0
+enp6        LOC_IF          tcpflags,forward=1,physical=enp6s0
+vir         VM_IF           routeback,bridge,tcpflags,nosmurfs,physical=virbr0

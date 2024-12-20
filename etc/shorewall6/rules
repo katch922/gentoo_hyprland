@@ -1,0 +1,32 @@
+#
+# Shorewall6 -- /etc/shorewall6/rules
+#
+# For information on the settings in this file, type "man shorewall-rules"
+#
+# The manpage is also online at
+# https://shorewall.org/manpages/shorewall-rules.html
+#
+##############################################################################################################################################################
+#ACTION		SOURCE		DEST		PROTO	DPORT	SPORT	ORIGDEST	RATE	USER	MARK	CONNLIMIT	TIME	HEADERS	SWITCH	HELPER
+
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+
+#ACTION         SOURCE    DEST      PROTO     DPORT
+# Do not allow connection pickup from the net
+Invalid(DROP)   enp5      all       tcp
+Invalid(DROP)   wlp7      all       tcp
+# Accept DNS connections from the firewall to the network
+DNS(ACCEPT)     $FW       enp5
+DNS(ACCEPT)     $FW       wlp7
+# Allow ping from the local network
+#Ping(ACCEPT)    enp6      $FW
+# Drop Ping from the "bad" net zone.. and prevent your log from being flooded..
+Ping(DROP)      enp5      $FW
+Ping(DROP)      wlp7      $FW
+#ACCEPT          $FW       enp6      ipv6-icmp
+#ACCEPT          $FW       enp5      ipv6-icmp

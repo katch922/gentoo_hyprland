@@ -8,6 +8,9 @@
 #
 ###############################################################################
 #SOURCE		DEST		POLICY	LOGLEVEL	RATE	CONNLIMIT
-loc         net         ACCEPT
-net         all         DROP    info
-all         all         REJECT  info
+fw          all         ACCEPT              # allow traffic from fw to internet
+vir         all         ACCEPT              # allow traffic from vm to internet
+enp5        all         DROP    $LOG_LEVEL  # drop all traffic coming from internet
+wlp7        all         DROP    $LOG_LEVEL
+# Following policy must be last
+all         all         REJECT  $LOG_LEVEL

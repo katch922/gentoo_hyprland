@@ -8,7 +8,8 @@
 #
 ?FORMAT 2
 ###############################################################################
-#ZONE		INTERFACE		OPTIONS
-net         NET_IF          tcpflags,dhcp,nosmurfs,routefilter,logmartians,sourceroute=0,physical=enp5s0
-loc         LOC_IF          tcpflags,nosmurfs,routefilter,logmartians,physical=enp6s0
-vir         VIR_IF          routeback,bridge,tcpflags,nosmurfs,routefilter,logmartians,physical=virbr0
+#ZONE		INTERFACE	  OPTIONS
+enp5        NET_IF        tcpflags,dhcp,nosmurfs,routefilter,logmartians,sourceroute=0,physical=enp5s0
+wlp7        WIFI_IF       tcpflags,dhcp,nosmurfs,routefilter,logmartians,sourceroute=0,physical=wlp7s0
+enp6        LOC_IF        tcpflags,nosmurfs,routefilter,logmartians,physical=enp6s0
+vir         VM_IF         routeback,bridge,tcpflags,nosmurfs,routefilter,logmartians,physical=virbr0

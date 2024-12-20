@@ -7,5 +7,9 @@
 #
 ?FORMAT 2
 ###################################################################################################################################################
-#ACTION			SOURCE			DEST		PROTO	DPORT	SPORT	IPSEC	MARK	USER	SWITCH	ORIGDEST	PROBABILITY
-MASQUERADE      loc.ip/24      enp5s0
+#ACTION			SOURCE            DEST		PROTO	DPORT	SPORT	IPSEC	MARK	USER	SWITCH	ORIGDEST	PROBABILITY
+MASQUERADE      10.0.0.0/8,\
+                169.254.0.0/16,\
+                172.16.0.0/12,\
+                192.168.122.1/24,\
+                192.168.0.0/16    NET_IF

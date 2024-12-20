@@ -7,8 +7,10 @@
 # https://shorewall.org/manpages/shorewall-zones.html
 #
 ###############################################################################
-#ZONE		TYPE		OPTIONS		IN_OPTIONS	OUT_OPTIONS
+#ZONE	TYPE		OPTIONS		IN_OPTIONS	OUT_OPTIONS
 
 fw		firewall
-net     ipv6
-loc     ipv6
+enp5    ipv6
+wlp7    ipv6
+enp6    ipv6
+vir     ipv6

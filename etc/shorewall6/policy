@@ -8,6 +8,7 @@
 #
 ###############################################################################
 #SOURCE		DEST		POLICY	LOGLEVEL	RATE	CONNLIMIT
-loc         all         ACCEPT
-net         all         DROP    info
-all         all         REJECT  info
+fw          all         ACCEPT              # allow from fw to internet
+enp5        all         DROP    $LOG_LEVEL  # drop from internet to us
+wlp7        all         DROP    $LOG_LEVEL
+all         all         REJECT  $LOG_LEVEL
