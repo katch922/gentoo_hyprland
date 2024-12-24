@@ -5,7 +5,7 @@ media-video/pipewire sound-server pipewire-alsa dbus
 media-sound/pulseaudio -daemon
 
 # Disable features
-app-admin/sudo -sendmail
+app-admin/sudo -sendmail -pam
 
 # Enable os-prober
 >=sys-boot/grub-2.06-r4 mount -themes
@@ -25,7 +25,7 @@ media-libs/tiff jpeg
 
 # Required by unar
 # Added PGO
-sys-devel/gcc objc pgo
+sys-devel/gcc lto objc pgo
 >=gnustep-base/gnustep-make-2.8.0-r1 native-exceptions
 
 # For KVM use
@@ -94,7 +94,5 @@ app-shells/bash pgo
 dev-lang/python pgo
 sys-devel/binutils pgo
 
-# Satisfy dependency
-sys-apps/util-linux pam
-# remove pam authentication for elogind
-sys-auth/pambase -elogind
+# Enable Link Time Optimizations
+mail-client/thunderbird lto
