@@ -25,7 +25,7 @@ media-libs/tiff jpeg
 
 # Required by unar
 # Added PGO
-sys-devel/gcc lto objc pgo
+sys-devel/gcc objc pgo
 >=gnustep-base/gnustep-make-2.8.0-r1 native-exceptions
 
 # For KVM use
@@ -93,6 +93,3 @@ app-arch/xz-utils pgo
 app-shells/bash pgo
 dev-lang/python pgo
 sys-devel/binutils pgo
-
-# Enable Link Time Optimizations
-mail-client/thunderbird lto
