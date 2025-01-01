@@ -1,19 +1,40 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' insert-unambiguous false
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[`.]=* r:|=*'
+zstyle ':completion:*' max-errors 2 not-numeric
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' original true
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' prompt '%e'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/home/katch/.config/zsh/.zshrc'
+
+autoload -Uz compinit colors vcs_info promptinit
+compinit
+colors
+promptinit
+# End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE="$ZDOTDIR/histfile"
-HISTSIZE=500
-SAVEHIST=500
-setopt autocd notify
-unsetopt beep
+HISTSIZE=1000
+SAVEHIST=1000
+setopt nomatch
+unsetopt autocd beep extendedglob notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # User defined options
-autoload -U compinit colors vcs_info
-compinit
-#zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-colors
 # Report command running time if it is more than 3 seconds
-REPORTTIME=3
+#REPORTTIME=3
 # Add commands to history as they are entered, don't wait for shell to exit
 setopt INC_APPEND_HISTORY
 # Also remember command start time & duration
@@ -22,17 +43,13 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 # Do not remember commands that start with a whitespace
 setopt HIST_IGNORE_SPACE
-# Correct spelling of all arguments in the command line
-#setopt CORRECT_ALL
-DISABLE_CORRECTION="true"
-# Enable autocompletion
-#zstyle ':completion:*' completer _complete _correct _approximate
 
+# prompt restore
+# display error colored triangle
 zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%F{blue}%b%f %u%c"
-
 _setup_ps1() {
   vcs_info
   GLYPH="▲"
@@ -41,16 +58,16 @@ _setup_ps1() {
   RPROMPT="$vcs_info_msg_0_"
 }
 _setup_ps1
+# set prompt with promptinit
+prompt bart
+
+# Set umask for non-login shell
+umask 0077
 
 # user-friendly command output
 export CLICOLOR=1
 ls --color=auto &> /dev/null && alias ls='ls --color=auto'
-
-# Set umask for non-login shell
-umask 077
-
 # set aliases
-alias ls='ls --color=auto'
 alias lx='ls -X --color=auto'
 alias l='ls -CF --group-directories-first --color=auto'
 alias lh='ls -lh --color=auto'
@@ -75,11 +92,9 @@ alias dd='dd status="progress"'
 alias p='pwd ; ls -CF'
 alias d='date "+%d %b %Y"'
 alias mypass='cat /etc/passwd'
-alias joplin-desktop='joplin-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'
-alias ssh-git='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/git_key'
+alias ssh-git='eval "$(ssh-agent -s)" && ssh-add $HOME/.local/ssh/id_ed25519'
 
 # add login message
-#clear
 printf "Welcome $USER to $HOST\n"
 date
 printf "Logged on users:"
@@ -87,28 +102,13 @@ w | cut -d " " -f 1 - | grep -v USER | sort -u
 uptime
 
 # Activate zsh-autosuggestions
-source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-
-# Activate zsh-autocomplete
-# version 24.09.04 from guru is causing major lag
-#source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# Extra settings for zsh-autocomplete
-# all Tab widgets
-#zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-# all history widgets
-#zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-# ^S
-#zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-# Make Enter submit the command line straight from the menu
-#bindkey -M menuselect '\r' .accept-line
-# Make Tab go straight to the menu & cycle there 
-#bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-#bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Activate zsh-syntax-highlighting
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Activate zsh-history-substring-search
-source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Bind the keys for the above plugin
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -137,12 +137,10 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
 # Set XDG_RUNTIME_DIR variable
-#!/bin/bash
-if test -z "${XDG_RUNTIME_DIR}"; then
-	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-	if ! test -d "${XDG_RUNTIME_DIR}"; then
-		mkdir "${XDG_RUNTIME_DIR}"
-		chmod 0700 "${XDG_RUNTIME_DIR}"
-	fi
-fi
-
+#if test -z "${XDG_RUNTIME_DIR}"; then
+#	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#	if ! test -d "${XDG_RUNTIME_DIR}"; then
+#		mkdir "${XDG_RUNTIME_DIR}"
+#		chmod 0700 "${XDG_RUNTIME_DIR}"
+#	fi
+#fi
